@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=XAMPP Control Panel
+GenericName=Local web server
+Comment=Apache, MySQL, PHP and phpMyAdmin control panel
+Exec=xampp-control-panel
+Icon=xampp-control-panel
+Terminal=false
+Categories=Development;WebDevelopment;Network;
+Keywords=xampp;apache;mysql;php;phpmyadmin;localhost;
+StartupNotify=true

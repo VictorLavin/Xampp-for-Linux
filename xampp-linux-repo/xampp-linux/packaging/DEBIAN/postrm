@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+    for prof in usr.sbin.mysqld usr.sbin.mariadbd; do
+        f="/etc/apparmor.d/local/$prof"
+        if [ -e "$f" ] && grep -q "xampp-linux" "$f"; then
+            sed -i '/xampp-linux/d' "$f"
+            if command -v apparmor_parser >/dev/null 2>&1 && [ -e "/etc/apparmor.d/$prof" ]; then
+                apparmor_parser -r "/etc/apparmor.d/$prof" >/dev/null 2>&1 || true
+            fi
+        fi
+    done
+fi
+exit 0

@@ -1,0 +1,15 @@
+Package: xampp-linux
+Version: 3.3.0-1
+Section: web
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.9), python3-pyqt6, apache2, libapache2-mod-php, php-mysql, php-mbstring, php-xml, php-curl, php-gd, php-zip, mysql-server | mariadb-server, phpmyadmin, openssl, iproute2, procps
+Recommends: mysql-client | mariadb-client, xdg-utils
+Suggests: tomcat10 | tomcat9, gnome-terminal | konsole | xfce4-terminal | xterm
+Maintainer: XAMPP Control Panel for Linux <noreply@localhost>
+Description: XAMPP-style control panel for Apache, MySQL, PHP and phpMyAdmin
+ A desktop replica of the XAMPP Control Panel for Windows. Start and stop
+ Apache (HTTP and HTTPS), MySQL and Tomcat as your own user, with no root
+ needed. It detects what is already installed on the machine, resolves
+ port conflicts, can install modules as systemd user services and explains
+ failures instead of just reporting that a module shut down unexpectedly.

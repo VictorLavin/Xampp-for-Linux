@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Files: *
+Copyright: 2026 XAMPP Control Panel for Linux contributors
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software, to deal in it without restriction. The software is provided
+ "as is", without warranty of any kind.

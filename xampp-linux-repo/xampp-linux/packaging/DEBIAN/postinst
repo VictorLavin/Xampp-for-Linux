@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+if [ "$1" = "configure" ]; then
+    # AppArmor (Ubuntu) stops mysqld from reading data outside /var/lib/mysql.
+    # Extend the profile through the supported local override file.
+    for prof in usr.sbin.mysqld usr.sbin.mariadbd; do
+        if [ -e "/etc/apparmor.d/$prof" ] && [ -d /etc/apparmor.d/local ]; then
+            f="/etc/apparmor.d/local/$prof"
+            if ! grep -q "xampp-linux" "$f" 2>/dev/null; then
+                printf '%s\n%s\n' "# xampp-linux: data of the per-user MySQL started by XAMPP Control Panel" \
+                    "owner @{HOME}/.local/share/xampp-linux/** rwk," >> "$f"
+            fi
+            if command -v apparmor_parser >/dev/null 2>&1; then
+                apparmor_parser -r "/etc/apparmor.d/$prof" >/dev/null 2>&1 || true
+            fi
+        fi
+    done
+fi
+exit 0
